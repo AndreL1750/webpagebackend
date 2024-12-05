@@ -130,7 +130,11 @@
                 <td>{{$car->Model}}</td>
                 <td>{{$car->Color}}</td>
                 <td>{{$car->Plate}}</td>
-                <td><a href="/cars/{{$car->Plate}}">View</a></td>
+                <form method="get" action="/cars/{{$car->Plate}}">
+                    <td>
+                        <button type="submit">View</button>
+                    </td>
+                </form>
             </tr>
         @endforeach
         
@@ -142,7 +146,7 @@
         </svg></button>
     </div>
     <div class="form-div"></div>
-    <form class="form-cars" method="post" action="/insert-cars">
+    <form class="form-cars" method="get" action="/carsCreate">
         @foreach($req as $item)
             <label>
                 <div>{{$item}}:</div>
