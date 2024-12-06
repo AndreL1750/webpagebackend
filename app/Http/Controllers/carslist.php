@@ -21,17 +21,17 @@ class Carslist extends Controller
             'Year'=>$request["Year"],
             'Brand'=>$request["Brand"],
             'Model'=>$request["Model"],
-            'Sub-Model'=>$request["Sub-Model"],
+            'Sub-Model'=>$request["SubModel"],
             'Version'=>$request["Version"],
             'Doors'=>$request["Doors"],
             'Color'=>$request["Color"],
             'Traction'=>$request["Traction"],
-            'Cubic-Capacity'=>$request["Cubic-Capacity"],
+            'Cubic-Capacity'=>$request["CubicCapacity"],
             'Power'=>$request["Power"],
             'Gearbox'=>$request["Gearbox"],
             'Fuel'=>$request["Fuel"],
             'Segment'=>$request["Segment"],
-            'Color-Type'=>$request["Color-Type"],
+            'Color-Type'=>$request["ColorType"],
             'Class'=>$request["Class"],
             'Plate'=>$request["Plate"]
         ]);
@@ -42,8 +42,13 @@ class Carslist extends Controller
         
         $car = Cars::where('Plate', $request['Plate'])->first();
 
-        $specs = ["Year", "Brand", "Model", "Sub-Model", "Version", "Doors", "Color", "Traction", "Cubic-Capacity", "Power", "Gearbox", "Fuel", "Segment", "Color-Type", "Class", "Plate"];
+        $specs = ["Year", "Brand", "Model", "SubModel", "Version", "Doors", "Color", "Traction", "CubicCapacity", "Power", "Gearbox", "Fuel", "Segment", "ColorType", "Class", "Plate"];
 
         return view('carsPage', ['carsSpecs' => $car, 'specs' => $specs]);
+    }
+    public function carsMaintenance(Request $request){
+        $car = Cars::where('Plate', $request['Plate'])->first();
+
+        return view('carsPage');
     }
 }

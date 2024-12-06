@@ -153,7 +153,6 @@
                 <input type="text" name="{{$item}}" required>
             </label>
         @endforeach
-        
         <div>
             <button type="submit">Add</button>
         </div>
