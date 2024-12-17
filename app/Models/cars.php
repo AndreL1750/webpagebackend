@@ -13,20 +13,21 @@ class Cars extends Model
         'Year',
         'Brand',
         'Model',
-        'Sub-Model',
+        'SubModel',
         'Version',
         'Doors',
         'Color',
         'Traction',
-        'Cubic-Capacity',
+        'CubicCapacity',
         'Power',
         'Gearbox',
         'Fuel',
         'Segment',
-        'Color-Type',
+        'ColorType',
         'Class',
         'Plate'
     ];
 
+    protected $connection = 'mysql';
     protected $table = "cars";
 }

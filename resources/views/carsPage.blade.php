@@ -124,20 +124,25 @@
     <h2>Maintenance</h2>
     <table>
         <tr>
+            <td>Plate</td>
             <td>Worker</td>
             <td>Description</td>
             <td>Date</td>
         </tr>
-        <tr>
-            <td>Mário Plunderer</td>
-            <td>Took the car to a oil change.</td>
-            <td>2024-12-21</td>
-        </tr>
-        <tr>
-            <td>Luigi Plunderer</td>
-            <td>Took the car to a tire change.</td>
-            <td>2024-12-28</td>
-        </tr>
+        @if(isset($maintenances) && count($maintenances) > 0)
+        @foreach($maintenances as $maintenance)
+            <tr>
+                <td>{{ $maintenance['Plate'] }}</td>
+                <td>{{ $maintenance['Worker'] }}</td>
+                <td>{{ $maintenance['Description'] }}</td>
+                <td>{{ $maintenance['Date'] }}</td>
+            </tr>
+        @endforeach
+        @else
+            <tr>
+                <td colspan="4">No maintenance records found.</td>
+            </tr>
+        @endif
     </table>
     <div class="addBtn">
         <button ><?xml version="1.0" encoding="utf-8"?>
@@ -146,18 +151,25 @@
         </svg></button>
     </div>
     <div class="form-div"></div>
-    <form class="form-cars" method="get" action="">
+    <form class="form-cars" method="post" action="/cars/{{$carsSpecs->Plate}}/addMaintenance">
+        @csrf
         <h3>Maintenance Report</h3>
         <div>
+            <label>
+                <div>Plate:</div>
+                <input type="text" name="Plate" value="{{$carsSpecs->Plate}}" required readonly>
+            </label>
             <label>
                 <div>Worker:</div>
                 <input type="text" name="Worker" required>
             </label>
-        </div>
-        <div>
             <label>
                 <div>Description:</div>
-                <textArea name="Description" required></textArea>
+                <textarea name="Description" required></textarea>
+            </label>
+            <label>
+                <div>Date:</div>
+                <input type="date" name="Date" required>
             </label>
         </div>
         <div>
