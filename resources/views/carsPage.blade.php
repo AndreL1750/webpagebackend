@@ -127,6 +127,8 @@
             <td>Plate</td>
             <td>Worker</td>
             <td>Description</td>
+            <td>Distance</td>
+            <td>Route</td>
             <td>Date</td>
         </tr>
         @if(isset($maintenances) && count($maintenances) > 0)
@@ -135,12 +137,14 @@
                 <td>{{ $maintenance['Plate'] }}</td>
                 <td>{{ $maintenance['Worker'] }}</td>
                 <td>{{ $maintenance['Description'] }}</td>
+                <td>{{ $maintenance['Distance'] }}</td>
+                <td>{{ $maintenance['Route'] }}</td>
                 <td>{{ $maintenance['Date'] }}</td>
             </tr>
         @endforeach
         @else
             <tr>
-                <td colspan="4">No maintenance records found.</td>
+                <td colspan="6">No maintenance records found.</td>
             </tr>
         @endif
     </table>
@@ -166,6 +170,14 @@
             <label>
                 <div>Description:</div>
                 <textarea name="Description" required></textarea>
+            </label>
+            <label>
+                <div>Distance:</div>
+                <input type="text" name="Distance" required>
+            </label>
+            <label>
+                <div>Route:</div>
+                <input type="text" name="Route" required>
             </label>
             <label>
                 <div>Date:</div>

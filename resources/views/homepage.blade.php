@@ -124,19 +124,19 @@
         </tr>
 
         @foreach($carsList as $car)
+        <form method="get" action="/cars/{{$car->Plate}}">
             <tr>
                 <td>{{$car->id}}</td>
                 <td>{{$car->Brand}}</td>
                 <td>{{$car->Model}}</td>
                 <td>{{$car->Color}}</td>
                 <td>{{$car->Plate}}</td>
-                <form method="get" action="/cars/{{$car->Plate}}">
-                    <td>
-                        <button type="submit">View</button>
-                    </td>
-                </form>
+                <td>
+                    <button type="submit">View</button>
+                </td>
             </tr>
-        @endforeach
+        </form>
+            @endforeach
         
     </table>
     <div class="addBtn">

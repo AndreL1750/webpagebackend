@@ -23,7 +23,9 @@ class Maintenancelist extends Controller
             'Plate' => 'required|string',
             'Worker' => 'required|string',
             'Description' => 'required|string|max:255',
-            'Date' => 'required|date',
+            'Distance' => 'required',
+            'Route' => 'required',
+            'Date' => 'required|date'
         ]);
 
         $client = new Client("mongodb://127.0.0.1:27017");
@@ -33,7 +35,9 @@ class Maintenancelist extends Controller
             'Plate' => $Plate,
             'Worker' => $validatedData['Worker'],
             'Description' => $validatedData['Description'],
-            'Date' => $validatedData['Date'],
+            'Distance' => $validatedData['Distance'],
+            'Route' => $validatedData['Route'],
+            'Date' => $validatedData['Date']
         ]);
 
         return redirect()->back()->with('success', 'Maintenance record added successfully!');
